@@ -32,17 +32,17 @@ var connect = function(x0, y0, x1, y1) {
 
 var draw = function(e) {
     e.preventDefault();
+    var x = e.offsetX;
+    var y = e.offsetY;
+    drawCircle(x, y);
     if (cX < 0 || cY < 0) {
         cX = e.offsetX;
         cY = e.offsetY;
     } else {
-        var x = e.offsetX;
-        var y = e.offsetY;
         connect(cX, cY, x, y);
         cX = x;
         cY = y;
     }
-    drawCircle(cX, cY);
 }
 
 var reset = function() {
